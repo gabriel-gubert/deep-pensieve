@@ -11,12 +11,17 @@ def matmul_quire(a, b):
     if t_a == sp.posit8:
         posit_t = sp.posit8
         q = sp.quire8()
-    # elif t_a == sp.posit16:
-    #     posit_t = sp.posit16
-    #     q = sp.quire16()
-    # elif t_a == sp.posit32:
-    #     posit_t = sp.posit32
-    #     q = sp.quire32()
+    elif t_a == sp.posit16:
+        posit_t = sp.posit16
+        q = sp.quire16()
+    elif t_a == sp.posit32:
+        posit_t = sp.posit32
+        q = sp.quire32()
+    elif issubclass(t_a, sp.posit_2):
+        x = t_a(0).x
+
+        posit_t = sp.__getattribute__(f'posit{x}_2')
+        q = sp.__getattribute__(f'quire{x}_2')
     else:
         raise TypeError("Only posit types from SoftPosit accepted. Received {} and {}".format(
             str(t_a), str(t_b)))

@@ -28,7 +28,7 @@ else:
     data_set = 'mnist'
     d_set = mnist
 
-saved_model_dir = '../data/lenet5/' + data_set + '/'
+saved_model_dir = '../../data/lenet5/' + data_set + '/'
 results_dir = './inference_results/lenet5/' + data_set + '/'  
 
 # confirm Dataset

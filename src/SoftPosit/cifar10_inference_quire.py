@@ -7,9 +7,9 @@ import pickle
 import csv
 import time
 from collections import OrderedDict
-from common.layers import *
-from common.matmul_quire import *
-from common.read_weights import *
+from DeepPeNSieve.layers import *
+from DeepPeNSieve.matmul_quire import *
+from DeepPeNSieve.read_weights import *
 from multiprocessing import Pool, cpu_count
 
 # Remove this for further evaluation
@@ -302,7 +302,7 @@ print('Working with type', type(X_test.item(0)))
 # Generate model
 network = SimpleConvNet(output_size=10, weight_init_std=0.01, _t=posit_t)
 
-f_name = '../data/'+ dataset + '/posit32.ckpt'
+f_name = '../../data/'+ dataset + '/posit32.ckpt'
 network.load_params(file_name=f_name, _t=posit_t)
 print('NN generated!')
 

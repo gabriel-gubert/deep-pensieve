@@ -7,9 +7,9 @@ import pickle
 import csv
 import time
 from collections import OrderedDict
-from common.layers import *
-from common.matmul_quire import *
-from common.read_weights import *
+from DeepPeNSieve.layers import *
+from DeepPeNSieve.matmul_quire import *
+from DeepPeNSieve.read_weights import *
 from multiprocessing import Pool, cpu_count
 
 # Remove this for further evaluation
@@ -260,7 +260,7 @@ dataset = 'SVHN'
 print("Dataset is: ", dataset)
 
 # Read data
-data_path = '../data/' + dataset + '/'
+data_path = '../../data/' + dataset + '/'
 test_location = data_path + 'dataset/test_32x32.mat'
 
 

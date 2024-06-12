@@ -25,7 +25,7 @@ tf.set_random_seed(2)
 data_set = 'SVHN'
 print("Dataset is: ", data_set)
 
-data_path = '../data/' + data_set + '/'
+data_path = '../../data/' + data_set + '/'
 test_location = data_path + 'dataset/test_32x32.mat'
 
 

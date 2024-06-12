@@ -26,7 +26,7 @@ data_set = 'SVHN'
 
 # Dataset location
 # data_loc = '/home/raul/Documentos/Posits/deep-pensieve/src/TensorFlow/data/SVHN/dataset/'
-data_path = '../data/' + data_set + '/'
+data_path = '../../data/' + data_set + '/'
 train_location = data_path + 'dataset/train_32x32.mat'
 test_location = data_path + 'dataset/test_32x32.mat'
 

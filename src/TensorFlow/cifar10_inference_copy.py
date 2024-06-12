@@ -324,7 +324,7 @@ If want to continue training the network (e.g. on transfer learning) comment thi
 """
 tf.graph_util.remove_training_nodes(tf.get_default_graph().as_graph_def())
 
-data_dir = '../data/CIFAR10/'
+data_dir = '../../data/CIFAR10/'
 model_name = data_dir + 'posit32.ckpt'
 # model_name = data_dir + 'float32.ckpt'
 
