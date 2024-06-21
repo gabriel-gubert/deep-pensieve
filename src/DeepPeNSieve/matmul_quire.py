@@ -2,11 +2,12 @@ import softposit as sp
 import numpy as np
 
 
-def matmul_quire(a, b):
+def matmul_quire(a, b, bias):
     # print("Posit_Quire multip.")
     assert a.ndim == b.ndim == 2
     t_a = type(a[0, 0])
     t_b = type(b[0, 0])
+    t_bias = type(bias[0])
 
     if t_a == sp.posit8:
         posit_t = sp.posit8
@@ -21,10 +22,12 @@ def matmul_quire(a, b):
         x = t_a(0).x
 
         posit_t = sp.__getattribute__(f'posit{x}_2')
-        q = sp.__getattribute__(f'quire{x}_2')
+        q = sp.__getattribute__(f'quire{x}_2')()
     else:
         raise TypeError("Only posit types from SoftPosit accepted. Received {} and {}".format(
             str(t_a), str(t_b)))
+
+    assert t_bias == t_a and t_bias == t_b
 
     ar, ac = a.shape  # n_rows * n_cols
     br, bc = b.shape  # n_rows * n_cols
@@ -41,6 +44,7 @@ def matmul_quire(a, b):
                 # c[i,j] += a[i,k] * b[k,j]
                 q.qma(a[i, k], b[k, j])
                 # c2[i,j] += a[i,k] * b[k,j]
+            q.qma(bias[j], 1)
             c[i, j] = q.toPosit()
     return c
 

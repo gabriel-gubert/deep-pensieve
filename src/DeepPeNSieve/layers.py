@@ -261,7 +261,7 @@ class Convolution:
         # print(type(col_W.item(0)), col_W.shape)
 
         # out = np.dot(col, col_W) + self.b
-        out = matmul_quire(col, col_W) + self.b
+        out = matmul_quire(col, col_W, self.b)
         out = out.reshape(N, out_h, out_w, -1).transpose(0, 3, 1, 2)
         # print(type(out.item(0)), out.shape)
 
